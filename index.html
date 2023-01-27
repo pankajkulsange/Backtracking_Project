@@ -79,17 +79,17 @@
       <h3 id="algohed">The backtracking algorithm.</h3>
 
       
-     <p class="code">boolean solve(Node n) {<br>
-          if n is a leaf node {<br>
-            if the leaf is a goal node, return true <br>
-            else return false <br>
-          } else { <br>
-            for each child c of n { <br>
-              if solve(c) succeeds, return true<br>
-           }<br>
-          return false<br>
-         }<br>
-      }</p>
+     <pre class="code">boolean solve(Node n) {
+          if n is a leaf node {
+            if the leaf is a goal node, return true 
+            else return false 
+          } else { 
+            for each child c of n { 
+              if solve(c) succeeds, return true
+           }
+          return false
+         }
+      }</pre>
 
       <p
         class="box"
@@ -128,11 +128,11 @@
       </p>
 
       
-   <p class="code">
-     for each child c of n { <br>
-       if solve(c) succeeds, return true<br>
-     } <br>
-     return false</p>
+   <pre class="code">
+     for each child c of n { 
+       if solve(c) succeeds, return true
+     } 
+     return false</pre>
 
       <p class="text">
         Eventually the recursion will "bottom" out at a leaf node. If the leaf
@@ -142,11 +142,11 @@
       </p>
 
      
- <p class="code">
-  if n is a leaf node {<br>
-   if the leaf is a goal node, return true <br>
-   else return false <br>
-  }</p>
+ <pre class="code">
+  if n is a leaf node {
+   if the leaf is a goal node, return true 
+   else return false 
+  }</pre>
 
       <p class="text">
         The backtracking algorithm is simple but important. You should
@@ -179,22 +179,22 @@
         language.
       </p>
      
-<p class="code">
-  boolean solve(Node n) { <br>
-    put node n on the stack; <br>
-     while the stack is not empty { <br>
-      if the node at the top of the stack is a leaf {<br>
-         if it is a goal node, return true <br>
-         else pop it off the stack <br>
-    } <br>
-        else { <br>
-         if the node at the top of the stack has untried children<br>
-           push the next untried child onto the stack <br>
-         else pop the node off the stack<br>
+<pre class="code">
+  boolean solve(Node n) { 
+    put node n on the stack; 
+     while the stack is not empty { 
+      if the node at the top of the stack is a leaf {
+         if it is a goal node, return true 
+         else pop it off the stack 
+    } 
+        else { 
+         if the node at the top of the stack has untried children
+           push the next untried child onto the stack 
+         else pop the node off the stack
           
-   }<br> 
-  return false<br>
- }</p>
+   } 
+  return false
+ }</pre>
 
       <p class="text">
         Starting from the root, the only nodes that can be pushed onto the stack
@@ -222,24 +222,24 @@
         (in reverse order) the nodes along the successful path:
       </p>
      
-<p class="code">
-  boolean solve(Node n) { <br>
-   if n is a leaf node { <br>
-    if the leaf is a goal node {<br>
-       print n <br>
-       return true<br>
-     }<br>
-       else return false <br>
-  } else { <br>
-    for each child c of n { <br>
-       if solve(c) succeeds {<br>
-          print n <br>
-          return true <br>
-            }<br>
-       } <br>
-       return false<br>
-     } <br>
-  }</p>
+<pre class="code">
+  boolean solve(Node n) { 
+   if n is a leaf node { 
+    if the leaf is a goal node {
+       print n 
+       return true
+     }
+       else return false 
+  } else { 
+    for each child c of n { 
+       if solve(c) succeeds {
+          print n 
+          return true 
+            }
+       } 
+       return false
+     } 
+  }</pre>
 
       <h3 class="h3"
       >
@@ -346,20 +346,20 @@
       <p class="text">Here's a definition of the BinaryTree class:</p>
 
      
-<p class="code">
-  public class BinaryTree {<br>
-     BinaryTree leftChild = null;<br> 
-     BinaryTree rightChild = null; <br> 
-     boolean isGoalNode = false;<br> 
-     String name;<br> <br>
+<pre class="code">
+  public class BinaryTree {
+     BinaryTree leftChild = null; 
+     BinaryTree rightChild = null;  
+     boolean isGoalNode = false; 
+     String name; 
       
-   BinaryTree(String name, BinaryTree left, BinaryTree right, boolean isGoalNode) { <br> 
-     this.name = name;<br> 
-     leftChild = left;<br> 
-     rightChild = right;<br> 
-     this.isGoalNode = isGoalNode;<br> 
-   }<br> 
-  }</p>
+   BinaryTree(String name, BinaryTree left, BinaryTree right, boolean isGoalNode) {  
+     this.name = name; 
+     leftChild = left; 
+     rightChild = right; 
+     this.isGoalNode = isGoalNode; 
+   } 
+  }</pre>
 
       <p class="text">
         Next we will create a TreeSearch class, and in it we will define a
@@ -367,18 +367,18 @@
       </p>
 
       
-<p class="code">
-  static BinaryTree makeTree() {<br>
-    BinaryTree root, a, b, c, d, e, f;<br>
-    c = new BinaryTree("C", null, null, false);<br>
-    d = new BinaryTree("D", null, null, false); <br>
-    e = new BinaryTree("E", null, null, true);<br>
-    f = new BinaryTree("F", null, null, false);<br>
-    a = new BinaryTree("A", c, d, false);<br>
-    b = new BinaryTree("B", e, f, false);<br>
-    root = new BinaryTree("Root", a, b, false);<br>
-    return root;<br>
-  }</p>
+<pre class="code">
+  static BinaryTree makeTree() {
+    BinaryTree root, a, b, c, d, e, f;
+    c = new BinaryTree("C", null, null, false);
+    d = new BinaryTree("D", null, null, false); 
+    e = new BinaryTree("E", null, null, true);
+    f = new BinaryTree("F", null, null, false);
+    a = new BinaryTree("A", c, d, false);
+    b = new BinaryTree("B", e, f, false);
+    root = new BinaryTree("Root", a, b, false);
+    return root;
+  }</pre>
 
       <p class="text">
         And finally, here's the recursive backtracking routine to "solve" the
@@ -386,14 +386,14 @@
       </p>
 
      
-<p class="code">
-  static boolean solvable(BinaryTree node) { <br>
-  /* 1 */ if (node == null) return false;<br>
-  /* 2 */ if (node.isGoalNode) return true;<br>
-  /* 3 */ if (solvable(node.leftChild)) return true;<br>
-  /* 4 */ if (solvable(node.rightChild)) return true;<br>
-  /* 5 */ return false;<br>
-  }</p>
+<pre class="code">
+  static boolean solvable(BinaryTree node) { 
+  /* 1 */ if (node == null) return false;
+  /* 2 */ if (node.isGoalNode) return true;
+  /* 3 */ if (solvable(node.leftChild)) return true;
+  /* 4 */ if (solvable(node.rightChild)) return true;
+  /* 5 */ return false;
+  }</pre>
 
       <p class="text">Here's what the numbered lines are doing:</p>
       <ol class="list"
@@ -426,13 +426,13 @@
       </p>
 
     
-<p class="code">
-  static boolean solvable(BinaryTree node) { <br>
-   if (node.isGoalNode) return true;<br>
-   if (node.leftChild != null && solvable(node.leftChild)) return true; <br>
-   if (node.rightChild != null && solvable(node.rightChild)) return true; <br>
-   return false;<br>
-  }</p>
+<pre class="code">
+  static boolean solvable(BinaryTree node) { 
+   if (node.isGoalNode) return true;
+   if (node.leftChild != null && solvable(node.leftChild)) return true; 
+   if (node.rightChild != null && solvable(node.rightChild)) return true; 
+   return false;
+  }</pre>
       <p class="text">
         I think the first version is simpler, but the second version is slightly
         more efficient.
@@ -495,31 +495,31 @@
       </p>
       <p class="text">Here's the code for method 1:</p>
      
-<p class="code">
-  boolean explore1(int row, int column, int color) { <br>
-    if (row >= NUM_ROWS)return mapIsOK();<br>
-    map[row][column] = color;<br>
-    for (int nextColor = RED; nextColor <= BLUE; nextColor++) { <br>
-      int[] next = nextRowAndColumn(row, column);<br>
-      if (explore1(next[0], next[1], nextColor)) return true; <br>
-   }<br>
-    return false; <br>
- }</p>
+<pre class="code">
+  boolean explore1(int row, int column, int color) { 
+    if (row >= NUM_ROWS)return mapIsOK();
+    map[row][column] = color;
+    for (int nextColor = RED; nextColor <= BLUE; nextColor++) { 
+      int[] next = nextRowAndColumn(row, column);
+      if (explore1(next[0], next[1], nextColor)) return true; 
+   }
+    return false; 
+ }</pre>
 
       <p class="text">And here's the code for method 2:</p>
      
-<p class="code">
-boolean explore2(int row, int column, int color) {<br>
-  if (row >= NUM_ROWS)return true;<br>
-  if (okToColor(row, column, color)) {<br>
-     map[row][column] = color;<br>
-     for (int nextColor = RED; nextColor <= BLUE; nextColor++) { <br>
-       int[] next = nextRowAndColumn(row, column); <br>
-       if (explore2(next[0], next[1], nextColor)) return true;<br>
-     } <br>
-   } <br>
-     return false; <br>
-}</p>
+<pre class="code">
+boolean explore2(int row, int column, int color) {
+  if (row >= NUM_ROWS)return true;
+  if (okToColor(row, column, color)) {
+     map[row][column] = color;
+     for (int nextColor = RED; nextColor <= BLUE; nextColor++) { 
+       int[] next = nextRowAndColumn(row, column); 
+       if (explore2(next[0], next[1], nextColor)) return true;
+     } 
+   } 
+     return false; 
+}</pre>
 
       <p class="text">
         Those appear pretty similar, and you might think they are equally good.
@@ -596,40 +596,40 @@ boolean explore2(int row, int column, int color) {<br>
       </p>
 
       
-<p class="code">
-  static String indent = ""; <br> <br>
-  static String name(BinaryTree node) { <br>
-     if (node == null) return null;  <br>
-     else return node.name;  <br>
-  } <br><br>
-  static void enter(BinaryTree node) { <br>
-     System.out.println(indent + "Entering solvable(" + name(node) + ")"); <br>
-     indent = indent + "| ";  <br>
-  } <br> <br>
-  static boolean yes(BinaryTree node) { <br>
-     indent = indent.substring(3); <br>
-     System.out.println(indent + "solvable(" + name(node) + ") returns true");  <br>
-     return true;  <br>
-  } <br> <br> 
-  static boolean no(BinaryTree node) { <br>
-     indent = indent.substring(3); <br>
-     System.out.println(indent + "solvable(" + name(node) + ")  <br>
-     returns false"); return false; <br>
+<pre class="code">
+  static String indent = "";  
+  static String name(BinaryTree node) { 
+     if (node == null) return null;  
+     else return node.name;  
+  } 
+  static void enter(BinaryTree node) { 
+     System.out.println(indent + "Entering solvable(" + name(node) + ")"); 
+     indent = indent + "| ";  
+  }  
+  static boolean yes(BinaryTree node) { 
+     indent = indent.substring(3); 
+     System.out.println(indent + "solvable(" + name(node) + ") returns true");  
+     return true;  
+  }   
+  static boolean no(BinaryTree node) { 
+     indent = indent.substring(3); 
+     System.out.println(indent + "solvable(" + name(node) + ")  
+     returns false"); return false; 
   }
-</p>
+</pre>
 
       <p class="text">To use this code, we modify solvable as follows:</p>
 
       
-<p class="code">
-  static boolean solvable(BinaryTree node) {<br>
-    enter(node);<br>
-    if (node == null) return no(node);<br>
-    if (node.isGoalNode) return yes(node);<br>
-    if (solvable(node.leftChild)) return yes(node); <br>
-    if (solvable(node.rightChild)) return yes(node);<br>
-    return no(node);<br>
-  }</p>
+<pre class="code">
+  static boolean solvable(BinaryTree node) {
+    enter(node);
+    if (node == null) return no(node);
+    if (node.isGoalNode) return yes(node);
+    if (solvable(node.leftChild)) return yes(node); 
+    if (solvable(node.rightChild)) return yes(node);
+    return no(node);
+  }</pre>
 
       <p class="text">And we get these results:</p>
       <p class="text">
@@ -675,28 +675,28 @@ boolean explore2(int row, int column, int color) {<br>
         For example,
       </p>
       
-<p class="code">
-  static final boolean debugging = false;<br><br>
-  static void enter(BinaryTree node) {<br>
-     if (debugging) { <br>
-      System.out.println(indent + "Entering solvable(" + name(node) + ")");<br>
-      indent = indent + "| "; <br>
-     }<br>
-  }<br><br>
-  static boolean yes(BinaryTree node) {<br>
-     if (debugging) { <br>
-        indent = indent.substring(3);<br>
-        System.out.println(indent + "solvable(" + name(node) + ") returns true"); <br>
-      } <br>
-        return true; <br>
-  } <br><br>
-  static boolean no(BinaryTree node) {<br>
-      if (debugging) { <br>
-        indent = indent.substring(3);<br>
-        System.out.println(indent + "solvable(" + name(node) + ") returns false");<br>
-      } <br>
-        return false;<br>
-  }</p>
+<pre class="code">
+  static final boolean debugging = false;
+  static void enter(BinaryTree node) {
+     if (debugging) { 
+      System.out.println(indent + "Entering solvable(" + name(node) + ")");
+      indent = indent + "| "; 
+     }
+  }
+  static boolean yes(BinaryTree node) {
+     if (debugging) { 
+        indent = indent.substring(3);
+        System.out.println(indent + "solvable(" + name(node) + ") returns true"); 
+      } 
+        return true; 
+  } 
+  static boolean no(BinaryTree node) {
+      if (debugging) { 
+        indent = indent.substring(3);
+        System.out.println(indent + "solvable(" + name(node) + ") returns false");
+      } 
+        return false;
+  }</pre>
       <p class="text">
         In industry, actual programs often have multiple flags to control
         different aspects of debugging. Don't worry too much about making your
@@ -715,7 +715,7 @@ boolean explore2(int row, int column, int color) {<br>
       </p>
 
       
-<p class="code">new Exception("Checkpoint Charlie").printStackTrace(System.out);</p>
+<pre class="code">new Exception("Checkpoint Charlie").printStackTrace(System.out);</pre>
 
       <p class="text">
         will print out a message something like this, and the program will then
@@ -723,14 +723,14 @@ boolean explore2(int row, int column, int color) {<br>
         statement.
       </p>
       
-<p class="code">
-  java.lang.Exception: Checkpoint Charlie <br>
-  at TreeSearch.solvable(TreeSearch.java:53) <br>
-  at TreeSearch.solvable(TreeSearch.java:57) <br>
-  at TreeSearch.main(TreeSearch.java:72)  <br>
-  at __SHELL38.run(__SHELL38.java:16)  <br>
+<pre class="code">
+  java.lang.Exception: Checkpoint Charlie 
+  at TreeSearch.solvable(TreeSearch.java:53) 
+  at TreeSearch.solvable(TreeSearch.java:57) 
+  at TreeSearch.main(TreeSearch.java:72)  
+  at __SHELL38.run(__SHELL38.java:16)  
   at bluej.runtime.ExecServer.suspendExecution(Unknown Source)
-</p>
+</pre>
 
       <h3 class="h3"
       >
@@ -909,22 +909,22 @@ color:#424242 ;">Now we have a simpler ordering of moves to use in our program. 
 <p class="text">Along with <span class="span"> canMove and makeMove,</span> we are using methods <span class="span"> puzzleSolved and printBoard</span> with meanings that should be obvious. With these methods, our central backtracking method can be written as follows:</p>
 
 
-<p class="code">
-  boolean solvable(int[] board) {<br> 
-   if (puzzleSolved(board)) { <br>
-    return true; <br>
-  } <br>
-  for (int position = 0; position < BOARD_SIZE; position++) { <br>
-    if (canMove(board, position)) {<br>
-       int[] newBoard = makeMove(board, position);<br>
-       if (solvable(newBoard)) {<br>
-         printBoard(newBoard);<br>
-         return true; <br>
-      } <br>
-    }<br>
-  } <br>
-  return false; <br>
- }</p>
+<pre class="code">
+  boolean solvable(int[] board) { 
+   if (puzzleSolved(board)) { 
+    return true; 
+  } 
+  for (int position = 0; position < BOARD_SIZE; position++) { 
+    if (canMove(board, position)) {
+       int[] newBoard = makeMove(board, position);
+       if (solvable(newBoard)) {
+         printBoard(newBoard);
+         return true; 
+      } 
+    }
+  } 
+  return false; 
+ }</pre>
 
  <p class="text">Along with canMove and makeMove, we are using methods puzzleSolved and printBoard with meanings that should be obvious.</p> <p class="text"> Here is some output from the program:</p>
 
